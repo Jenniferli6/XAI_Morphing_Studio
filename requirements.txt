@@ -1,0 +1,14 @@
+Flask
+flask-cors
+opencv-python
+mediapipe
+scipy
+torch
+torchvision
+grad-cam
+Pillow
+matplotlib
+numpy
+imageio
+imageio-ffmpeg
+requests

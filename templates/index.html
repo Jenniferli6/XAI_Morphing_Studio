@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XAI Morphing Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎨 XAI Morphing Studio</h1>
+            <p class="subtitle">Visualize CNN Attention During Image Morphing</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Image Selection Section -->
+            <section class="image-section">
+                <div class="section-header">
+                    <h2>Image Selection</h2>
+                    <button id="randomBtn" class="btn btn-primary">
+                        🎲 Get Random Images
+                    </button>
+                </div>
+
+                <div class="image-boxes">
+                    <div class="image-box">
+                        <div class="image-placeholder" id="image1Box">
+                            <span>Image 1</span>
+                        </div>
+                        <p class="image-label">Source Image</p>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div class="image-box">
+                        <div class="image-placeholder" id="image2Box">
+                            <span>Image 2</span>
+                        </div>
+                        <p class="image-label">Target Image</p>
+                    </div>
+                </div>
+
+                <div class="category-info" id="categoryInfo"></div>
+            </section>
+
+            <!-- Generate Button -->
+            <section class="action-section">
+                <button id="generateBtn" class="btn btn-generate" disabled>
+                    🎬 Generate Morph Video
+                </button>
+                <div class="loading" id="loadingIndicator">
+                    <p id="loadingText">Processing...</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none; visibility: visible;">
+                <h2>Results</h2>
+                
+                <!-- Videos -->
+                <div class="video-grid">
+                    <div class="video-container">
+                        <h3>Morph Sequence</h3>
+                        <video id="morphVideo" controls>
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-description">
+                            Transition between images
+                        </p>
+                    </div>
+
+                    <div class="video-container">
+                        <h3>Grad-CAM Attention</h3>
+                        <video id="gradcamVideo" controls>
+                            Your browser does not support the video tag.
+                        </video>
+                        <p class="video-description">
+                            CNN attention heatmap showing what the network focuses on
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Analysis -->
+                <div class="analysis-section">
+                    <h2>Analysis</h2>
+                    <div class="analysis-grid">
+                        <div class="analysis-card">
+                            <h4>Morph Info</h4>
+                            <div id="morphInfo"></div>
+                        </div>
+
+                        <div class="analysis-card timeline-card-full">
+                            <h4>Morph Stage and Model Prediction</h4>
+                            <div id="timelineInfo"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 XAI Morphing Studio. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
