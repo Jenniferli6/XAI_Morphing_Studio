@@ -18,35 +18,24 @@ class GradCAMEngine:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.fps = fps
         
-        # Lazy loading - don't load model until needed
-        self.model = None
-        self.target_layers = None
+        # Load model
+        print("  Loading ResNet50...")
+        self.model = models.resnet50(pretrained=True)
+        self.model = self.model.to(self.device)
+        self.model.eval()
         
-        # Preprocessing (lightweight, can be initialized)
+        self.target_layers = [self.model.layer4[-1]]
+        
+        # Preprocessing
         self.preprocess = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
         
-        # Load ImageNet labels (lightweight)
+        # Load ImageNet labels
         self.labels = self._load_imagenet_labels()
-    
-    def _ensure_model_loaded(self):
-        """Lazy load the model only when needed"""
-        if self.model is None:
-            print("  Loading ResNet50...")
-            # Force CPU mode on Render (no GPU available anyway)
-            self.device = torch.device("cpu")
-            # Use newer API, avoid deprecated pretrained=True
-            self.model = models.resnet50(weights='IMAGENET1K_V2')
-            self.model = self.model.to(self.device)
-            self.model.eval()
-            # Freeze model to reduce memory
-            for param in self.model.parameters():
-                param.requires_grad = False
-            self.target_layers = [self.model.layer4[-1]]
-            print("  ✓ Model ready (CPU mode)")
+        print("  ✓ Model ready")
     
     def _load_imagenet_labels(self):
         """Load ImageNet class labels"""
