@@ -126,10 +126,18 @@ def get_random_images():
 def run_morph_generation(session_id, image1_path, image2_path):
     """Run morph generation in background thread"""
     try:
+        # Ensure output directory exists
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        
         # Initialize progress store
         progress_store[session_id] = {'current': 0, 'total': 100, 'stage': 'loading', 'result': None}
         
         print(f"[{session_id}] Starting morph generation...")
+        print(f"[{session_id}] Image1 path: {image1_path}")
+        print(f"[{session_id}] Image2 path: {image2_path}")
+        print(f"[{session_id}] Output dir: {OUTPUT_DIR}")
+        print(f"[{session_id}] Output dir exists: {os.path.exists(OUTPUT_DIR)}")
+        print(f"[{session_id}] Output dir writable: {os.access(OUTPUT_DIR, os.W_OK)}")
         
         # Progress callback function - updates progress store
         def progress_callback(current, total, stage='morph'):
@@ -190,10 +198,16 @@ def run_morph_generation(session_id, image1_path, image2_path):
         }
         
     except Exception as e:
-        print(f"Error in run_morph_generation: {str(e)}")
+        error_msg = str(e)
+        print(f"[{session_id}] ERROR in run_morph_generation: {error_msg}")
         import traceback
         traceback.print_exc()
-        progress_store[session_id] = {'error': str(e), 'stage': 'error'}
+        progress_store[session_id] = {
+            'error': error_msg,
+            'stage': 'error',
+            'current': 0,
+            'total': 100
+        }
 
 @app.route('/api/generate-morph', methods=['POST'])
 def generate_morph():
@@ -214,10 +228,28 @@ def generate_morph():
             }), 400
         
         # Convert Flask static paths to absolute file paths if needed
+        # The morph_engine expects paths relative to project root or absolute paths
         if image1_path.startswith('/static/'):
-            image1_path = os.path.join(os.path.dirname(__file__), image1_path.lstrip('/'))
+            # Convert /static/images/category/file.jpg to absolute path
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            image1_path = os.path.join(base_dir, image1_path.lstrip('/'))
+            print(f"Converted image1_path to: {image1_path}")
         if image2_path.startswith('/static/'):
-            image2_path = os.path.join(os.path.dirname(__file__), image2_path.lstrip('/'))
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            image2_path = os.path.join(base_dir, image2_path.lstrip('/'))
+            print(f"Converted image2_path to: {image2_path}")
+        
+        # Verify images exist before starting thread
+        if not os.path.exists(image1_path):
+            return jsonify({
+                'success': False,
+                'error': f'Image1 not found: {image1_path}'
+            }), 400
+        if not os.path.exists(image2_path):
+            return jsonify({
+                'success': False,
+                'error': f'Image2 not found: {image2_path}'
+            }), 400
         
         # Generate unique session ID
         session_id = datetime.now().strftime('%Y%m%d_%H%M%S')
