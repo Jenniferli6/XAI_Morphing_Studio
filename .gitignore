@@ -41,3 +41,7 @@ Thumbs.db
 outputs/
 *.log
 
+venv/
+__pycache__/
+*.pyc
+.DS_Store

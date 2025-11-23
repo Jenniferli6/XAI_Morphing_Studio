@@ -6,6 +6,90 @@ In this project, I built an XAI Morphing Studio, using a hands-on and visual way
 
 By visualizing abstract model reasoning as a dynamic, observable process, the XAI Morphing Studio bridges the gap between algorithmic transparency and human interpretability, advancing both the rigor and accessibility of explainable AI!
 
+## Video Examples
+
+The following 4x4 table showcases 8 image pairs with their morph and Grad-CAM visualizations. Each pair shows the morph video (top) and Grad-CAM video (bottom).
+
+<table>
+<tr>
+<td align="center">
+<strong>Cavalier → Pug</strong><br>
+<video width="200" controls>
+  <source src="static/mp4/dog_morph.mp4" type="video/mp4">
+</video><br>
+<video width="200" controls>
+  <source src="static/mp4/dog_gradcam.mp4" type="video/mp4">
+</video>
+</td>
+<td align="center">
+<strong>Bird → Polar Bear</strong><br>
+<video width="200" controls>
+  <source src="static/mp4/bird-polar bear_morph.mp4" type="video/mp4">
+</video><br>
+<video width="200" controls>
+  <source src="static/mp4/bird-polar bear_gradcam.mp4" type="video/mp4">
+</video>
+</td>
+<td align="center">
+<strong>Balloon → Bridge</strong><br>
+<video width="200" controls>
+  <source src="static/mp4/ballon-bridge_morph.mp4" type="video/mp4">
+</video><br>
+<video width="200" controls>
+  <source src="static/mp4/ballon-bridge_gradcam.mp4" type="video/mp4">
+</video>
+</td>
+<td align="center">
+<strong>Taylor Swift Evolution</strong><br>
+<video width="200" controls>
+  <source src="static/mp4/taylor_morph.mp4" type="video/mp4">
+</video><br>
+<video width="200" controls>
+  <source src="static/mp4/taylor_gradcam.mp4" type="video/mp4">
+</video>
+</td>
+</tr>
+<tr>
+<td align="center">
+<strong>Meat → Ice Cream</strong><br>
+<video width="200" controls>
+  <source src="static/mp4/meat-ice cream_morph.mp4" type="video/mp4">
+</video><br>
+<video width="200" controls>
+  <source src="static/mp4/meat-ice cream_gradcam.mp4" type="video/mp4">
+</video>
+</td>
+<td align="center">
+<strong>Basketball → Soccer</strong><br>
+<video width="200" controls>
+  <source src="static/mp4/basketball-soccer_morph.mp4" type="video/mp4">
+</video><br>
+<video width="200" controls>
+  <source src="static/mp4/basketball-soccer_gradcam.mp4" type="video/mp4">
+</video>
+</td>
+<td align="center">
+<strong>Boy → Man</strong><br>
+<video width="200" controls>
+  <source src="static/mp4/men_morph.mp4" type="video/mp4">
+</video><br>
+<video width="200" controls>
+  <source src="static/mp4/men_gradcam.mp4" type="video/mp4">
+</video>
+</td>
+<td align="center">
+<strong>Elephant → Monkey</strong><br>
+<video width="200" controls>
+  <source src="static/mp4/elephant-monkey_morph.mp4" type="video/mp4">
+</video><br>
+<video width="200" controls>
+  <source src="static/mp4/elephant-monkey_gradcam.mp4" type="video/mp4">
+</video>
+</td>
+</tr>
+</table>
+
+
 ## Project Structure
 
 ```
@@ -80,6 +164,8 @@ XAI_Morphing_Studio/
    - Watch the Grad-CAM video showing CNN attention visualization
    - Review the prediction timeline showing model predictions and confidence scores
 
+
+
 ## Results Examples
 ### Dog 
 
@@ -102,6 +188,7 @@ XAI_Morphing_Studio/
 
 **3. Analysis Results**
 ![Life - Analysis](static/results/life/life3.png)
+
 
 
 ## License
