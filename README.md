@@ -8,83 +8,51 @@ By visualizing abstract model reasoning as a dynamic, observable process, the XA
 
 ## Video Examples
 
-The following 4x4 table showcases 8 image pairs with their morph and Grad-CAM visualizations. Each pair shows the morph video (top) and Grad-CAM video (bottom).
+The following 4x4 table showcases 8 image pairs with their morph and Grad-CAM visualizations. Each pair shows the morph animation (top) and Grad-CAM visualization (bottom).
 
 <table>
 <tr>
 <td align="center">
 <strong>Cavalier → Pug</strong><br>
-<video width="200" controls>
-  <source src="static/mp4/dog_morph.mp4" type="video/mp4">
-</video><br>
-<video width="200" controls>
-  <source src="static/mp4/dog_gradcam.mp4" type="video/mp4">
-</video>
+<img src="static/gif/cavalier-pug_morph.gif" width="200" alt="Cavalier to Pug Morph"><br>
+<img src="static/gif/cavalier-pug_gradcam.gif" width="200" alt="Cavalier to Pug Grad-CAM">
 </td>
 <td align="center">
 <strong>Bird → Polar Bear</strong><br>
-<video width="200" controls>
-  <source src="static/mp4/bird-polar bear_morph.mp4" type="video/mp4">
-</video><br>
-<video width="200" controls>
-  <source src="static/mp4/bird-polar bear_gradcam.mp4" type="video/mp4">
-</video>
+<img src="static/gif/bird-polar bear_morph.gif" width="200" alt="Bird to Polar Bear Morph"><br>
+<img src="static/gif/bird-polar bear_gradcam.gif" width="200" alt="Bird to Polar Bear Grad-CAM">
 </td>
 <td align="center">
 <strong>Balloon → Bridge</strong><br>
-<video width="200" controls>
-  <source src="static/mp4/ballon-bridge_morph.mp4" type="video/mp4">
-</video><br>
-<video width="200" controls>
-  <source src="static/mp4/ballon-bridge_gradcam.mp4" type="video/mp4">
-</video>
+<img src="static/gif/ballon-bridge_morph.gif" width="200" alt="Balloon to Bridge Morph"><br>
+<img src="static/gif/ballon-bridge_gradcam.gif" width="200" alt="Balloon to Bridge Grad-CAM">
 </td>
 <td align="center">
 <strong>Taylor Swift Evolution</strong><br>
-<video width="200" controls>
-  <source src="static/mp4/taylor_morph.mp4" type="video/mp4">
-</video><br>
-<video width="200" controls>
-  <source src="static/mp4/taylor_gradcam.mp4" type="video/mp4">
-</video>
+<img src="static/gif/taylor_morph.gif" width="200" alt="Taylor Swift Morph"><br>
+<img src="static/gif/taylor_gradcam.gif" width="200" alt="Taylor Swift Grad-CAM">
 </td>
 </tr>
 <tr>
 <td align="center">
 <strong>Meat → Ice Cream</strong><br>
-<video width="200" controls>
-  <source src="static/mp4/meat-ice cream_morph.mp4" type="video/mp4">
-</video><br>
-<video width="200" controls>
-  <source src="static/mp4/meat-ice cream_gradcam.mp4" type="video/mp4">
-</video>
+<img src="static/gif/meat-ice cream_morph.gif" width="200" alt="Meat to Ice Cream Morph"><br>
+<img src="static/gif/meat-ice cream_gradcam.gif" width="200" alt="Meat to Ice Cream Grad-CAM">
 </td>
 <td align="center">
 <strong>Basketball → Soccer</strong><br>
-<video width="200" controls>
-  <source src="static/mp4/basketball-soccer_morph.mp4" type="video/mp4">
-</video><br>
-<video width="200" controls>
-  <source src="static/mp4/basketball-soccer_gradcam.mp4" type="video/mp4">
-</video>
+<img src="static/gif/basketball-soccer_morph.gif" width="200" alt="Basketball to Soccer Morph"><br>
+<img src="static/gif/basketball-soccer_gradcam.gif" width="200" alt="Basketball to Soccer Grad-CAM">
 </td>
 <td align="center">
 <strong>Boy → Man</strong><br>
-<video width="200" controls>
-  <source src="static/mp4/men_morph.mp4" type="video/mp4">
-</video><br>
-<video width="200" controls>
-  <source src="static/mp4/men_gradcam.mp4" type="video/mp4">
-</video>
+<img src="static/gif/men_morph.gif" width="200" alt="Boy to Man Morph"><br>
+<img src="static/gif/men_gradcam.gif" width="200" alt="Boy to Man Grad-CAM">
 </td>
 <td align="center">
 <strong>Elephant → Monkey</strong><br>
-<video width="200" controls>
-  <source src="static/mp4/elephant-monkey_morph.mp4" type="video/mp4">
-</video><br>
-<video width="200" controls>
-  <source src="static/mp4/elephant-monkey_gradcam.mp4" type="video/mp4">
-</video>
+<img src="static/gif/elephant-monkey_morph.gif" width="200" alt="Elephant to Monkey Morph"><br>
+<img src="static/gif/elephant-monkey_gradcam.gif" width="200" alt="Elephant to Monkey Grad-CAM">
 </td>
 </tr>
 </table>
