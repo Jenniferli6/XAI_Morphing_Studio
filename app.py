@@ -324,7 +324,14 @@ if __name__ == '__main__':
     print(f"Available categories: {list(IMAGE_CATEGORIES.keys())}")
     print(f"Total images: {sum(len(images) for images in IMAGE_CATEGORIES.values())}")
     print("="*70)
-    print("\n🚀 Starting server at http://localhost:5006")
+    
+    # Use PORT environment variable for deployment (Render, Railway, etc.)
+    port = int(os.environ.get('PORT', 5006))
+    debug = os.environ.get('FLASK_ENV') == 'development'
+    
+    print(f"\n🚀 Starting server at http://0.0.0.0:{port}")
+    if debug:
+        print("Debug mode: ON")
     print("Press Ctrl+C to stop\n")
     
-    app.run(debug=True, host='0.0.0.0', port=5006)
+    app.run(debug=debug, host='0.0.0.0', port=port)
