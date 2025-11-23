@@ -40,10 +40,13 @@ def load_local_images():
         # Get all image files in the category folder
         image_files = []
         for filename in sorted(os.listdir(category_path)):
-            if filename.lower().endswith(('.jpg', '.jpeg')):
-                # Create URL path for Flask static files
-                image_path = f'/static/images/{category}/{filename}'
-                image_files.append(image_path)
+            if filename.lower().endswith(('.jpg', '.jpeg', '.png', '.avif', '.webp')):
+                # Verify file actually exists before adding
+                file_path = os.path.join(category_path, filename)
+                if os.path.exists(file_path) and os.path.isfile(file_path):
+                    # Create URL path for Flask static files
+                    image_path = f'/static/images/{category}/{filename}'
+                    image_files.append(image_path)
         
         if image_files:
             image_categories[category] = image_files
@@ -77,12 +80,36 @@ def get_random_images():
     Returns: JSON with image URLs and category
     """
     try:
+        # Reload images to ensure we have the latest files (in case files were renamed/deleted)
+        current_categories = load_local_images()
+        
+        if not current_categories:
+            return jsonify({
+                'success': False,
+                'error': 'No image categories found'
+            }), 404
+        
         # Randomly select a category
-        category = random.choice(list(IMAGE_CATEGORIES.keys()))
-        images = IMAGE_CATEGORIES[category]
+        category = random.choice(list(current_categories.keys()))
+        images = current_categories[category]
+        
+        # Filter out any images that don't actually exist (safety check)
+        valid_images = []
+        for img_path in images:
+            # Convert Flask static path to absolute file path
+            if img_path.startswith('/static/'):
+                file_path = os.path.join(os.path.dirname(__file__), img_path.lstrip('/'))
+                if os.path.exists(file_path) and os.path.isfile(file_path):
+                    valid_images.append(img_path)
+        
+        if len(valid_images) < 2:
+            return jsonify({
+                'success': False,
+                'error': f'Not enough valid images in category "{category}" (found {len(valid_images)}, need at least 2)'
+            }), 404
         
         # Select two different random images
-        selected = random.sample(images, 2)
+        selected = random.sample(valid_images, 2)
         
         return jsonify({
             'success': True,
