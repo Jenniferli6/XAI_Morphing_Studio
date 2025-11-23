@@ -7,17 +7,27 @@ import numpy as np
 from PIL import Image
 import requests
 from io import BytesIO
-import mediapipe as mp
 from scipy.spatial import Delaunay
 import imageio
 import os
+
+# Try to import MediaPipe, but make it optional
+try:
+    import mediapipe as mp
+    MEDIAPIPE_AVAILABLE = True
+except ImportError:
+    MEDIAPIPE_AVAILABLE = False
+    print("Warning: MediaPipe not available. Face landmark detection disabled. Using simple blending.")
 
 class MorphEngine:
     def __init__(self, num_frames=120, fps=30, base_size=(320, 320)):
         self.num_frames = num_frames
         self.fps = fps
         self.base_size = base_size
-        self.mp_face_mesh = mp.solutions.face_mesh
+        if MEDIAPIPE_AVAILABLE:
+            self.mp_face_mesh = mp.solutions.face_mesh
+        else:
+            self.mp_face_mesh = None
         
     def load_image_from_url(self, url_or_path):
         """Load and resize image from URL or local file path"""
@@ -66,7 +76,10 @@ class MorphEngine:
         return Image.fromarray(cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB))
     
     def get_face_landmarks(self, image_bgr):
-        """Detect face landmarks using MediaPipe"""
+        """Detect face landmarks using MediaPipe (if available)"""
+        if not MEDIAPIPE_AVAILABLE or self.mp_face_mesh is None:
+            return None
+        
         h, w, _ = image_bgr.shape
         with self.mp_face_mesh.FaceMesh(
             static_image_mode=True,
