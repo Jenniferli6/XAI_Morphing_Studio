@@ -55,9 +55,6 @@ class GradCAMEngine:
         Analyze single frame with Grad-CAM
         Returns: prediction class, confidence, CAM image
         """
-        # Lazy load model if not already loaded
-        self._ensure_model_loaded()
-        
         # Preprocess
         input_tensor = self.preprocess(frame_pil).unsqueeze(0).to(self.device)
         

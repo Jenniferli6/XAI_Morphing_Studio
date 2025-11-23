@@ -194,26 +194,10 @@ class MorphEngine:
         try:
             # Load images
             print(f"  Loading images...")
-            print(f"  Image1 URL/path: {image1_url}")
-            print(f"  Image2 URL/path: {image2_url}")
             if progress_callback:
                 progress_callback(0, 100, 'loading')
-            
-            try:
-                imgA = self.load_image_from_url(image1_url)  # Can be URL or local path
-                print(f"  ✓ Image1 loaded successfully")
-            except Exception as e:
-                error_msg = f"Failed to load image1 from {image1_url}: {str(e)}"
-                print(f"  ✗ {error_msg}")
-                raise Exception(error_msg)
-            
-            try:
-                imgB = self.load_image_from_url(image2_url)  # Can be URL or local path
-                print(f"  ✓ Image2 loaded successfully")
-            except Exception as e:
-                error_msg = f"Failed to load image2 from {image2_url}: {str(e)}"
-                print(f"  ✗ {error_msg}")
-                raise Exception(error_msg)
+            imgA = self.load_image_from_url(image1_url)  # Can be URL or local path
+            imgB = self.load_image_from_url(image2_url)  # Can be URL or local path
             
             imgA_cv = self.pil_to_cv(imgA)
             imgB_cv = self.pil_to_cv(imgB)

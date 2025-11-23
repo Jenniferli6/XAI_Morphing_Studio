@@ -1,6 +1,5 @@
 Flask
 flask-cors
-gunicorn
 opencv-python
 mediapipe
 scipy
