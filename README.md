@@ -62,7 +62,8 @@ The following 4x4 table showcases 8 image pairs with their morph and Grad-CAM vi
 
 ```
 XAI_Morphing_Studio/
-├── app.py                # Flask web application
+├── app.py                # Flask web application (local version)
+├── app_gradio.py         # Gradio application (Hugging Face Spaces version)
 ├── requirements.txt      # Python dependencies
 ├── README.md             
 ├── backend/
@@ -89,7 +90,31 @@ XAI_Morphing_Studio/
 
 ## Usage
 
-### Installation
+### Option 1: Try It Online (Hugging Face)
+
+The XAI Morphing Studio is deployed on **Hugging Face Spaces**! You can use it directly in your browser without any installation:
+
+**[👉 Try XAI Morphing Studio on Hugging Face Spaces](https://huggingface.co/spaces/Jenniferli/XAI_Morphing_Studio)**
+
+#### Using the Hugging Face App
+
+1. **Select Images** - You have three ways to provide images:
+   - **Option 1:** Click "Get Random Images" to randomly select two images from pre-loaded categories (animals, cats, dogs, food, life, sports, etc.)
+   - **Option 2:** Upload images by clicking on the "Source Image" or "Target Image" boxes and selecting files from your computer
+   - **Option 3:** Drag and drop images directly into the image boxes
+
+2. **Generate Morph** - Click "Generate Morph" button:
+   - **First click:** Runs the analysis and displays the results (morph info and prediction timeline)
+   - **After the analysis appears, click "Generate Morph" again** to generate and display the videos (morph sequence and Grad-CAM visualization)
+
+3. **View Results**:
+   - Watch the morph video showing the smooth transition between images
+   - Watch the Grad-CAM video showing CNN attention visualization
+   - Review the analysis section showing morph details and model predictions at different stages (0%, 25%, 50%, 75%, 100%)
+
+**Note:** Generation takes several minutes depending on server load, typically 1-3 minutes.
+
+### Option 2: Run Locally
 
 1. **Clone the repository** (or navigate to the project directory):
    ```bash
@@ -101,8 +126,6 @@ XAI_Morphing_Studio/
    pip install -r requirements.txt
    ```
 
-### Starting the Server
-
 3. **Run the Flask application**:
    ```bash
    python app.py
@@ -110,7 +133,6 @@ XAI_Morphing_Studio/
 
    The server will start at `http://localhost:5006`
 
-### Using the Web Interface
 
 4. **Open your browser** and navigate to `http://localhost:5006`
 
@@ -134,29 +156,16 @@ XAI_Morphing_Studio/
 
 
 
-## Results Examples
-### Dog 
+## Results Example
 
-**1. Random Image Generation Section**
-![Dog - Image Selection](static/results/dog/dog1.png)
+**1. Image Section**
+![Dog - Image Selection](static/results/dog/dog01.png)
 
-**2. Video Result**
-![Dog - Morph Video](static/results/dog/dog2.png)
-
-**3. Analysis Results**
-![Dog - Analysis](static/results/dog/dog3.png)
-
-### Life 
-
-**1. Random Image Generation Section**
-![Life - Image Selection](static/results/life/life1.png)
-
-**2. Video Result**
-![Life - Morph Video](static/results/life/life2.png)
+**2. Video Results**
+![Dog - Morph Video](static/results/dog/dog02.png)
 
 **3. Analysis Results**
-![Life - Analysis](static/results/life/life3.png)
-
+![Dog - Analysis](static/results/dog/dog03.png)
 
 
 ## License
@@ -169,4 +178,9 @@ This project is provided as-is for educational and research purposes.
 - Uses MediaPipe for face landmark detection
 - Uses PyTorch Grad-CAM for attention visualization
 - Uses ResNet50 pre-trained on ImageNet
-- Built with Flask web framework
+- Built with Flask web framework (local version)
+- Built with Gradio for Hugging Face Spaces deployment (Hugging Face Spaces version)
+- Deployed on Hugging Face Spaces
+
+
+*Note: Claude Sonnet 4.5 and Cursor Composer 1 were used to help debug the code and draft Github Repo ReadMe.*
