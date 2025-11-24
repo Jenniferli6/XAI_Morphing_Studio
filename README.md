@@ -1,6 +1,8 @@
 # XAI Morphing Studio
 
-Deep vision models like ResNet and techniques like Grad-CAM sit behind many of the “magic” image features we use every day—classification, search, recommendation, content filtering—but most of the time we have no idea why they make the decisions they do. That missing “why” is exactly what Responsible AI and explainable AI (XAI) are trying to surface, so we can debug failures, uncover biases, and build systems people can actually trust.
+**[👉 Try It Online on Hugging Face Spaces](https://huggingface.co/spaces/Jenniferli/XAI_Morphing_Studio)**
+
+Deep vision models like ResNet and techniques like Grad-CAM sit behind many of the "magic" image features we use every day—classification, search, recommendation, content filtering—but most of the time we have no idea why they make the decisions they do. That missing "why" is exactly what Responsible AI and explainable AI (XAI) are trying to surface, so we can debug failures, uncover biases, and build systems people can actually trust.
 
 In this project, I built an XAI Morphing Studio, using a hands-on and visual way to poke at these models and literally watch how their attention shifts as images change. The studio morphs between two images and, frame by frame, shows where a ResNet50 is looking using Grad-CAM heatmaps. As the morph unfolds, you can see predictions and confidence scores update in this process.
 
@@ -67,6 +69,7 @@ XAI_Morphing_Studio/
 ├── requirements.txt      # Python dependencies
 ├── README.md             
 ├── backend/
+│   ├── __init__.py
 │   ├── morph_engine.py   # Image morphing engine
 │   └── gradcam_engine.py # Grad-CAM visualization engine
 ├── static/
@@ -74,16 +77,20 @@ XAI_Morphing_Studio/
 │   │   └── style.css     # Web interface styles
 │   ├── js/
 │   │   └── main.js       # Frontend JavaScript
-│   └── images/           # Image data organized by category
-│       ├── animals/
-│       ├── cats/
-│       ├── dogs/
-│       ├── food/
-│       ├── life/
-│       ├── sports/
-│       └── taylor swift/
+│   ├── images/           # Image data organized by category
+│   │   ├── animals/
+│   │   ├── cats/
+│   │   ├── dogs/
+│   │   ├── food/
+│   │   ├── life/
+│   │   ├── men/
+│   │   ├── sports/
+│   │   └── taylor swift/
+│   ├── gif/              # GIF animations for README examples
+│   ├── mp4/              # MP4 video examples
+│   └── results/          # Screenshot examples
 ├── templates/
-│   └── index.html        # Main web page template
+│   └── index.html        # Main web page template (Flask)
 └── outputs/              # Generated video files (created automatically)
 ```
 
