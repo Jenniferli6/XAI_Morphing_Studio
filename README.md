@@ -1,6 +1,12 @@
 # XAI Morphing Studio
 
+Jennifer Li
+
 **[👉 Try It Online on Hugging Face Spaces](https://huggingface.co/spaces/Jenniferli/XAI_Morphing_Studio)**
+
+**[📹 Watch Demo Video on YouTube](https://www.youtube.com/watch?v=i4DUM8bhkH8)**
+
+[![Watch the video](https://img.youtube.com/vi/i4DUM8bhkH8/maxresdefault.jpg)](https://www.youtube.com/watch?v=i4DUM8bhkH8)
 
 Deep vision models like ResNet and techniques like Grad-CAM sit behind many of the "magic" image features we use every day—classification, search, recommendation, content filtering—but most of the time we have no idea why they make the decisions they do. That missing "why" is exactly what Responsible AI and explainable AI (XAI) are trying to surface, so we can debug failures, uncover biases, and build systems people can actually trust.
 
