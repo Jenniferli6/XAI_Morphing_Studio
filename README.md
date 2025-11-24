@@ -6,8 +6,6 @@ Jennifer Li
 
 **[📹 Watch Demo Video on YouTube](https://www.youtube.com/watch?v=i4DUM8bhkH8)**
 
-[![Watch the video](https://img.youtube.com/vi/i4DUM8bhkH8/maxresdefault.jpg)](https://www.youtube.com/watch?v=i4DUM8bhkH8)
-
 Deep vision models like ResNet and techniques like Grad-CAM sit behind many of the "magic" image features we use every day—classification, search, recommendation, content filtering—but most of the time we have no idea why they make the decisions they do. That missing "why" is exactly what Responsible AI and explainable AI (XAI) are trying to surface, so we can debug failures, uncover biases, and build systems people can actually trust.
 
 In this project, I built an XAI Morphing Studio, using a hands-on and visual way to poke at these models and literally watch how their attention shifts as images change. The studio morphs between two images and, frame by frame, shows where a ResNet50 is looking using Grad-CAM heatmaps. As the morph unfolds, you can see predictions and confidence scores update in this process.
