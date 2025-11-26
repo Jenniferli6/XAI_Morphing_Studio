@@ -110,16 +110,16 @@ The XAI Morphing Studio is deployed on **Hugging Face Spaces**! You can use it d
 #### Using the Hugging Face App
 
 1. **Select Images** - You have 4 ways to provide images:
-   - **Option 1:** Click the middle camera button at the bottom of the image box, open your webcam, and **take a photo** for either or both images directly.
-   - **Option 2:** Click the **"Get Random Images"** button to randomly select two images from pre-loaded categories (animals, cats, dogs, food, life, sports, etc.)
-   - **Option 3:** Click the "Source Image" or "Target Image" boxes to **upload the image** files from your computer
-   - **Option 4:** **Drag and drop** images directly into the image boxes
+   - Random Selection – Click “Get Random Images” to randomly select two images from pre-loaded dataset
+   - Upload – Drop an image or click to upload from your computer.
+   - Webcam – Click the camera icon to open your webcam and take a photo.
+   - Clipboard – Paste an image directly from your clipboard.
 
-3. **Generate Morph** - Click "Generate Morph" button:
+2. **Generate Morph** - Click "Generate Morph" button:
    - **First click:** Runs the analysis and displays the results (morph info and prediction timeline)
    - **After the analysis appears, click "Generate Morph" again** to generate and display the videos (morph sequence and Grad-CAM visualization)
 
-4. **View Results**:
+3. **View Results**:
    - Watch the morph video showing the smooth transition between images
    - Watch the Grad-CAM video showing CNN attention visualization
    - Review the analysis section showing morph details and model predictions at different stages (0%, 25%, 50%, 75%, 100%)
