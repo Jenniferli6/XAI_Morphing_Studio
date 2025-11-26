@@ -109,21 +109,23 @@ The XAI Morphing Studio is deployed on **Hugging Face Spaces**! You can use it d
 
 #### Using the Hugging Face App
 
-1. **Select Images** - You have three ways to provide images:
-   - **Option 1:** Click "Get Random Images" to randomly select two images from pre-loaded categories (animals, cats, dogs, food, life, sports, etc.)
-   - **Option 2:** Upload images by clicking on the "Source Image" or "Target Image" boxes and selecting files from your computer
-   - **Option 3:** Drag and drop images directly into the image boxes
+1. **Select Images** - You have 4 ways to provide images:
+   - **Option 1:** Click the middle camera button at the bottom of the image box to open your webcam, and take a photo for either or both images directly.
+   - **Option 2:** Click "Get Random Images" to randomly select two images from pre-loaded categories (animals, cats, dogs, food, life, sports, etc.)
+   - **Option 3:** Upload images by clicking on the "Source Image" or "Target Image" boxes and selecting files from your computer
+   - **Option 4:** Drag and drop images directly into the image boxes
 
-2. **Generate Morph** - Click "Generate Morph" button:
+3. **Generate Morph** - Click "Generate Morph" button:
    - **First click:** Runs the analysis and displays the results (morph info and prediction timeline)
    - **After the analysis appears, click "Generate Morph" again** to generate and display the videos (morph sequence and Grad-CAM visualization)
 
-3. **View Results**:
+4. **View Results**:
    - Watch the morph video showing the smooth transition between images
    - Watch the Grad-CAM video showing CNN attention visualization
    - Review the analysis section showing morph details and model predictions at different stages (0%, 25%, 50%, 75%, 100%)
 
-**Note:** Generation takes several minutes depending on server load, typically 1-3 minutes.
+**Note 1:** The app is deployed on Hugging Face Spaces (free tier).   
+**Note 2:** Generation takes several minutes depending on server load, typically 1-3 minutes. When multiple users are trying it at the same time, it might load slowly or temporarily time out. If that happens, please refresh or try again a bit later. Thank you for your patience and interest!
 
 ### Option 2: Run Locally
 
