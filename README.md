@@ -1,13 +1,3 @@
----
-title: XAI Morphing Studio
-emoji: 🖼️
-colorFrom: blue
-colorTo: purple
-sdk: gradio
-python_version: "3.11"
-app_file: app_gradio.py
----
-
 # XAI Morphing Studio
 
 Jennifer Li
